@@ -27,11 +27,26 @@ window.addEventListener("load", setStyles);
 function setStyles() {
       // Declares the styleNum variable and uses 5 as the perameter of the randInt functions
       var styleNum = randInt(5);
-
       var fancySheet = document.createElement("link");
       fancySheet.setAttribute("rel", "stylesheet");
       fancySheet.setAttribute("id", "fancySheet");
       fancySheet.setAttribute("href", "na_style_" + styleNum + ".css");
+      document.head.appendChild(fancySheet);
+
+      // Allows the user to choose between 5 different style sheets that were created by clicking thumbnail images from a figure box
+      var figBox = document.createElement("figBox");
+      figBox.setAttribute("id", "styleThumbs");
+      document.getElementById("box").appendChild(figBox);
+
+      // This will populate the figure box with preview images of the 5 fancy style sheets
+      for (var i = 0; i <= 4; i++) {
+            var sheetImg = document.createElement("img");
+            sheetImg.setAttribute("src", "na_small_" + i + ".png");
+            sheetImg.setAttribute("alt", "na_style_" + i + ".css");
+
+            // The browser will load a different style sheet when the user clicks one of the thumbnails
+            sheetImg.onclick = function (e) {}
+      }
 }
 
 function randInt(size) {
