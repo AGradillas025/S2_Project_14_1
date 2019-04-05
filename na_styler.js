@@ -45,8 +45,33 @@ function setStyles() {
             sheetImg.setAttribute("alt", "na_style_" + i + ".css");
 
             // The browser will load a different style sheet when the user clicks one of the thumbnails
-            sheetImg.onclick = function (e) {}
+            sheetImg.onclick = function (e) {
+                  document.getElementById("fancySheet").setAttribute("href", e.target.all);
+            }
+            figBox.appendChild(sheetImg);
       }
+
+      // Designs the appearance of the thumbnail figure box
+      var thumbStyles = document.createElement("h1");
+      document.appendChild(thumbStyles);
+
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs { \
+            position: absolute; \
+            left: 0px; \
+            bottom: 0px; \
+            }", 0)
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs img { \
+            outline: 1px solid black; \
+            cursor: pointer; \
+            opacity: 0.75; \
+            }", 1)
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs img:hover { \
+            outline: 1px solid red; \
+            opacity: 1.0; \
+            }", 2)
 }
 
 function randInt(size) {
