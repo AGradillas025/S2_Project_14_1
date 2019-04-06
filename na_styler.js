@@ -34,7 +34,7 @@ function setStyles() {
       document.head.appendChild(fancySheet);
 
       // Allows the user to choose between 5 different style sheets that were created by clicking thumbnail images from a figure box
-      var figBox = document.createElement("figBox");
+      var figBox = document.createElement("figure");
       figBox.setAttribute("id", "styleThumbs");
       document.getElementById("box").appendChild(figBox);
 
@@ -46,32 +46,32 @@ function setStyles() {
 
             // The browser will load a different style sheet when the user clicks one of the thumbnails
             sheetImg.onclick = function (e) {
-                  document.getElementById("fancySheet").setAttribute("href", e.target.all);
+                  document.getElementById("fancySheet").setAttribute("href", e.target.alt);
             }
             figBox.appendChild(sheetImg);
       }
 
       // Designs the appearance of the thumbnail figure box
-      var thumbStyles = document.createElement("h1");
-      document.appendChild(thumbStyles);
+      var thumbStyles = document.createElement("style");
+      document.head.appendChild(thumbStyles);
 
       document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs { \
-            position: absolute; \
-            left: 0px; \
-            bottom: 0px; \
-            }", 0)
+                  position: absolute; \
+                  left: 0px; \
+                  bottom: 0px; \
+            }", 0);
       document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs img { \
-            outline: 1px solid black; \
-            cursor: pointer; \
-            opacity: 0.75; \
-            }", 1)
+                  outline: 1px solid black; \
+                  cursor: pointer; \
+                  opacity: 0.75; \
+            }", 1);
       document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs img:hover { \
-            outline: 1px solid red; \
-            opacity: 1.0; \
-            }", 2)
+                  outline: 1px solid red; \
+                  opacity: 1.0; \
+            }", 2);
 }
 
 function randInt(size) {
